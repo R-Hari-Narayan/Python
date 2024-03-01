@@ -2,13 +2,21 @@ import numpy as np
 import time
 import sys
 
-size= 1000
+size= 1000000
 
-l= list(range(5))
-print(l)
+l1= list(range(size))
+l2= list(range(size))
 
-arr= np.arange(5)
-print(arr)
+start= time.time()
+result= [(x+y) for x,y in zip(l1,l2)]
+print("Python list took: ", (time.time()- start)* 1000)
 
-print(sys.getsizeof(1)* 5)
-print(arr.itemsize* arr.size)
+a1= np.arange(size)
+a2= np.arange(size)
+
+start= time.time()
+result= a1+a2
+print("Numpy array took: ", (time.time()- start)*1000)
+
+print("Size of python array: ", sys.getsizeof(1)* size)
+print("Size of numpy array : ", a1.size* a1.itemsize)
