@@ -1,0 +1,2 @@
+
+    if midSq> x:
